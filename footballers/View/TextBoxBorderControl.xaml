@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="footballers.View.TextBoxBorderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:footballers.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    
+    <Border x:Name="Border" 
+            x:FieldModifier="private" 
+            BorderBrush="Pink" 
+            BorderThickness="0">
+        <TextBox x:Name="TextBox" 
+                 x:FieldModifier="private" 
+                 MinWidth="25">
+            <TextBox.ToolTip>
+                <ToolTip x:Name="ToolTip" 
+                         Visibility="Hidden">
+                    <TextBlock x:Name="TextBlockToolTip" 
+                               Text="Wpisz tekst" 
+                               x:FieldModifier="private"/>
+                </ToolTip>
+            </TextBox.ToolTip>
+        </TextBox>
+    </Border>
+</UserControl>

@@ -1,0 +1,116 @@
+﻿<Window x:Class="footballers.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:footballers.View"
+        mc:Ignorable="d"
+        Title="Piłkarze" Height="450" Width="800">
+
+    <Border Padding="10" Background="#C8C8C8">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="3">
+
+                <!-- imie -->
+                <TextBlock Text="Imię" 
+                           Margin="3 3"/>
+                <local:TextBoxBorderControl x:Name="textBoxFirstName" 
+                                            Margin="3 3"/>
+
+
+                <!-- nazwisko -->
+                <TextBlock Text="Nazwisko" 
+                           Margin="3 3"/>
+                <local:TextBoxBorderControl x:Name="textBoxLastName" 
+                                            Margin="3 3" />
+
+                <!-- wiek -->
+                <TextBlock Text="Wiek" 
+                           Margin="3 3"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Slider x:Name="sliderAge" 
+                            Grid.Column="0" 
+                            Margin="0 8 0 0"
+                            Minimum="15" 
+                            Maximum="50" 
+                            Value="25"
+                            TickFrequency="1" 
+                            IsSnapToTickEnabled="True"/>
+                    <Label Grid.Column="1" 
+                           Margin="0 0 0 0" 
+                           HorizontalAlignment="Center"
+                           FontSize="17"
+                           Content="{Binding Path=Value,ElementName=sliderAge}"/>
+                </Grid>
+
+                <!-- wiek -->
+                <TextBlock Text="Waga [kg]" Margin="3 3"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="8*"/>
+                        <ColumnDefinition Width="1.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Slider x:Name="sliderWeight" 
+                            Grid.Column="0" 
+                            Margin="0 8 0 0"
+                            Minimum="50" 
+                            Maximum="110" 
+                            Value="75"
+                            TickFrequency="1" 
+                            IsSnapToTickEnabled="True"/>
+                    <Label Grid.Column="1" 
+                           Margin="0 0 0 0" 
+                           HorizontalAlignment="Center"  
+                           FontSize="17" 
+                           Content="{Binding Path=Value,ElementName=sliderWeight}"/>
+                </Grid>
+
+                <!-- buttony -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="buttonAdd" 
+                            Grid.Column="0" 
+                            Content="Dodaj" 
+                            Margin="8 5 8 5"/>
+                    <Button x:Name="buttonEdit" 
+                            Grid.Column="1" 
+                            Content="Edytuj" 
+                            Margin="8 5 8 5"/>
+
+
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="buttonReset" 
+                            Grid.Column="0" 
+                            Content="Reset" 
+                            Margin="8 5 8 5"/>
+                    <Button x:Name="buttonDelete" 
+                            Grid.Column="1" 
+                            Content="Usuń" 
+                            Margin="8 5 8 5"/>
+                </Grid>
+
+            </StackPanel>
+            <ListBox x:Name="listBoxOfPlayers" 
+                     Grid.Column="1" 
+                     Foreground="#575151" 
+                     FontSize="16"/>
+        </Grid>
+    </Border>
+</Window>
