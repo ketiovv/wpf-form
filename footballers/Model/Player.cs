@@ -3,6 +3,7 @@
     public class Player
     {
         #region properties
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public uint Age { get; set; }
@@ -11,6 +12,7 @@
         #endregion
 
         #region constructors
+
         public Player(string firstName, string lastName, uint age, uint weight)
         {
             FirstName = firstName;
