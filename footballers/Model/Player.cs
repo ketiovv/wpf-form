@@ -13,6 +13,10 @@
 
         #region constructors
 
+        public Player()
+        {
+        }
+
         public Player(string firstName, string lastName, uint age, uint weight)
         {
             FirstName = firstName;
@@ -20,15 +24,30 @@
             Age = age;
             Weight = weight;
         }
-        public Player(string firstName, string lastName) : this(firstName, lastName, 30, 75) { }
 
         #endregion
 
         #region methods
 
+        public void Copy(Player player)
+        {
+            FirstName = player.FirstName;
+            LastName = player.LastName;
+            Age = player.Age;
+            Weight = player.Weight;
+        }
         public override string ToString()
         {
-            return $"{FirstName} {LastName}, Age: {Age}, Weight: {Weight} kg";
+            return (FirstName + ", " + LastName + ", " + Age + "lat, " + Weight + "kg");
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+            Player player = obj as Player;
+            return Age == player.Age && FirstName == player.FirstName && LastName == player.LastName && Weight == player.Weight;
         }
 
         #endregion
