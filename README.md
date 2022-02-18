@@ -1,4 +1,4 @@
-# wpf_form_mvvm
+# Footballers
 
 ## Description
 A simple desktop app  that manages list of footballers with JSON serialization. University task.
